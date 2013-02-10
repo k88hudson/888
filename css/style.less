@@ -1,0 +1,32 @@
+@lightblue: #E7EDF0;
+@green: #3FB58E;
+@red: #CB3E21;
+
+@lightergrey: #F4F5F5;
+@lightgrey: #CCC;
+@grey: #D9DDDD;
+@darkgrey: #555;
+@darkestgrey: #3A3C3C;
+
+.transition(@props) {
+  -webkit-transition: @props;
+  -moz-transition: @props;
+  -o-transition: @props;
+  transition: @props;
+}
+.box-sizing( @property ) {
+  -webkit-box-sizing: @property;
+  -moz-box-sizing: @property;
+  -ms-box-sizing: @property;
+  box-sizing: @property;
+}
+
+/*********************************************************
+* Base
+*/
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-size: 100%;
+}
