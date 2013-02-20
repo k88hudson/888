@@ -20,6 +20,18 @@
   -ms-box-sizing: @property;
   box-sizing: @property;
 }
+.transform( @transformation ) {
+  -webkit-transform: @transformation;
+  -moz-transform: @transformation;
+  -o-transform: @transformation;
+  transform: @transformation;
+}
+.transform-origin( @transformation ) {
+  -webkit-transform-origin: @transformation;
+  -moz-transform-origin: @transformation;
+  -o-transform-origin: @transformation;
+  transform-origin: @transformation;
+}
 
 /*********************************************************
 * Base
@@ -29,4 +41,68 @@ body {
   font-family: "Helvetica Neue", sans-serif;
   margin: 0;
   font-size: 100%;
+}
+
+/*********************************************************
+* Tooltip
+*/
+
+.tooltip {
+  @_w: 150px;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: 5px;
+  margin-left: -@_w/2;
+  width: @_w;
+
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+
+  border: 1px solid @lightgrey;
+  background: #FFF;
+  box-shadow: 0 2px 6px -2px fade( #000, 15% );
+
+  .box-sizing( border-box );
+  padding: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+  [data-tooltip]:hover & {
+    .transition( all 0.5s ease-out );
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.top {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.tooltip-tip {
+  @_s: 12px;
+  position: absolute;
+  display: block;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -@_s/2;
+  height: @_s;
+  width: @_s * 1.5;
+  overflow: hidden;
+  > span {
+    position: absolute;
+    display: block;
+    background: #FFF;
+    top: 50%;
+    left: 50%;
+    margin-left: -@_s/2;
+    height: @_s;
+    width: @_s;
+    .box-sizing( border-box );
+    border: 1px solid @lightgrey;
+    .transform( rotate( 45deg ) );
+  }
 }

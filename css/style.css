@@ -6,3 +6,69 @@ body {
   margin: 0;
   font-size: 100%;
 }
+/*********************************************************
+* Tooltip
+*/
+.tooltip {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: 5px;
+  margin-left: -75px;
+  width: 150px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  border: 1px solid #cccccc;
+  background: #FFF;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+}
+[data-tooltip]:hover .tooltip {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.tooltip.top {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 5px;
+}
+.tooltip-tip {
+  position: absolute;
+  display: block;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -6px;
+  height: 12px;
+  width: 18px;
+  overflow: hidden;
+}
+.tooltip-tip > span {
+  position: absolute;
+  display: block;
+  background: #FFF;
+  top: 50%;
+  left: 50%;
+  margin-left: -6px;
+  height: 12px;
+  width: 12px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #cccccc;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
