@@ -6,31 +6,39 @@ body {
   margin: 0;
   font-size: 100%;
 }
+.left-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 350px;
+  background: #cccccc;
+  border: 1px solid yellow;
+}
+.row {
+  width: 100%;
+  background: red;
+  border-bottom: 1px solid blue;
+}
+.bottom-row {
+  background: green;
+  overflow-y: scroll;
+}
 /*********************************************************
-* Ticket
+* Accordion
 */
-.ticket {
-  font-family: "Open sans";
-  width: 210px;
-  font-size: 12px;
-  padding: 10px;
-  border: 1px solid #CCC;
+.accordion-controls [data-tab-control] {
+  display: block;
+  padding: 10px 0;
 }
-.title-container {
-  font-size: 1.1em;
+.accordion-controls [data-tab-control].tab-on {
+  background: yellow;
 }
-.t-number {
-  color: #999;
+.accordion-panels [data-tab] {
+  display: none;
 }
-.t-number:before {
-  content: "#";
-}
-.t-state {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 3px;
-  background: #3fb58e;
-  color: white;
+.accordion-panels [data-tab].tab-on {
+  display: block;
 }
 /*********************************************************
 * Tooltip
