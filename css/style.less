@@ -44,6 +44,37 @@ body {
 }
 
 /*********************************************************
+* Ticket
+*/
+
+.ticket {
+  font-family: "Open sans";
+  width: 210px;
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid #CCC;
+}
+
+.title-container {
+  font-size: 1.1em;
+}
+
+.t-number {
+  color: #999;
+  &:before {
+    content: "#";
+  }
+}
+
+.t-state {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: @green;
+  color: white;
+}
+
+/*********************************************************
 * Tooltip
 */
 
