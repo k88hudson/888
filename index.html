@@ -10,59 +10,141 @@
 <body>
 
   <div class="main">
-    <div class="left-panel">
+
+    <div class="panel left-panel">
+
+      <div class="header-row">Media Gallery</div>
+
       <div class="row">
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-      </div>
-      <div class="row accordion">
-        <div class="accordion-controls">
-          <a data-tab-control="1">Panel 1</a>
-          <a data-tab-control="2">Panel 2</a>
+        <div class="inner">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed d est laborum.</p>
+
+        <div class="group">
+          <label class="full">Text input</label>
+          <input>
         </div>
-        <div class="accordion-panels">
-          <div data-tab="1">
+
+        <div class="group">
+          <label class="full">URL input</label>
+          <textarea class="url-input" id="textbox-eg">http://en.wikipedia.org/wiki/Spamdexing#Cookie_stuffing</textarea>
+        </div>
+
+        <div class="group">
+          <label class="full">Invalid input</label>
+          <input class="invalid">
+        </div>
+
+         <div class="group">
+          <label class="sixth">Time</label>
+          <input class="half timecode-input">
+        </div>
+
+        <div class="group">
+          <label class="sixth">Text</label>
+          <ul class="select two-thirds">
+            <li style="font-family: Menlo;">Menlo</li>
+            <li style="font-family: Georgia;">Georgia</li>
+            <li style="font-family: Open Sans;">Open Sans</li>
+            <li style="font-family: Times;">Times</li>
+            <i class="icon icon-sort-down"></i>
+          </ul>
+          <input type="number" class="sixth">
+        </div>
+
+        t in culpa qui officia deserunt mollit anim id est laborum.
+        t in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+
+      <div class="row accordion no-border">
+        <a data-tab-control="blue">Panel 1</a>
+        <div data-tab="blue">
+          <div class="inner">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            tempor incididunt ut labore eunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
-          <div data-tab="2">
-            asdasdas dasd asdasdasdasdsaor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        </div>
+        <a data-tab-control="2">Panel 2</a>
+        <div data-tab="2">
+          <div class="inner">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore ur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
         </div>
       </div>
-      <div class="row bottom-row">
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      <div class="row bottom-row white">
+        <div class="inner">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed rcitation ullamco laboris nisi ut aliquip ex ea commodo
+      
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </div>
     </div>
+
+    <div class="panel floating-panel">
+
+      <div class="header-row">Editor</div>
+
+      <div class="row">
+        <div class="inner">
+
+          <div class="group">
+            <label class="full">Text input</label>
+            <input>
+          </div>
+
+          <div class="group">
+             <label class="full">Invalid input</label>
+            <input class="invalid">
+          </div>
+
+          <div class="group">
+            <label class="half">Half</label>
+            <input class="half">
+          </div>
+
+          <div class="group">
+            <label class="quarter">Quarter</label>
+            <input class="quarter">
+            <input class="quarter">
+            <input class="quarter">
+          </div>
+
+           <div class="group">
+            <label class="third">Hello world</label>
+            <input class="two-thirds">
+          </div>
+
+          <div class="group">
+            <label class="sixth">Text</label>
+            <input class="two-thirds">
+            <input class="sixth" type="number">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="header-row">Gallery</div>
+
+      <div id="media-input" class="row white no-border">
+        <ul class="tabs top">
+          <li data-tab-control="url">URL</li>
+          <li data-tab-control="webcam" class="tab-on">Webcam</li>
+        </ul>
+        <div class="inner" data-tab="url">
+          <label>Add new clip</label>
+          <textarea></textarea>
+          <a class="btn">Add clip</a>
+        </div>
+        <div class="inner tab-on" data-tab="webcam">
+          <label>Add new clip</label>
+          <div class="webcam"></div>
+          <a class="btn">Add clip</a>
+        </div>
+      </div>
+    </div><!-- floating-panel -->
+
   </div>
 
   <script src="src/require-jquery.js" data-main="src/main.js"></script>

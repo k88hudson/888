@@ -1,3 +1,5 @@
+@import "font-awesome";
+
 @lightblue: #E7EDF0;
 @green: #3FB58E;
 @red: #CB3E21;
@@ -7,6 +9,14 @@
 @grey: #D9DDDD;
 @darkgrey: #555;
 @darkestgrey: #3A3C3C;
+
+.selectable(@param) {
+  -webkit-touch-callout: @param;
+  -webkit-user-select: @param;
+  -moz-user-select: @param;
+  -ms-user-select: @param;
+  user-select: @param;
+}
 
 .transition(@props) {
   -webkit-transition: @props;
@@ -33,16 +43,25 @@
   transform-origin: @transformation;
 }
 
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after { clear: both; }
+}
+
 /*********************************************************
 * Base
 */
 
 body {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   font-size: 100%;
 }
-
 
 .left-panel {
   position: fixed;
@@ -50,42 +69,322 @@ body {
   left: 0;
   bottom: 0;
   width: 350px;
-  background: @lightgrey;
-  border: 1px solid yellow;
+  border-right: 1px solid @lightgrey;
 }
 
-.row {
-  width: 100%;
-  background: red;
-  border-bottom: 1px solid blue;
+.floating-panel {
+  position: absolute;
+  top: 150px;
+  left: 760px;
+  width: 300px;
+  border: 1px solid @lightgrey;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px -5px fade( black, 15% );
+}
+
+.webcam {
+  height: 150px;
+  background: #555;
 }
 
 .bottom-row {
-  background: green;
   overflow-y: scroll;
+}
+
+/*********************************************************
+* Editor body
+*/
+
+.panel {
+  background: @lightergrey;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+
+.row {
+  .clearfix();
+  border-bottom: 1px solid @lightgrey;
+  &.no-border { border-bottom: none; }
+  &.white { background: #FFF; }
+}
+
+.inner {
+  position: relative;
+  padding: 1em;
+}
+
+.header-row {
+  padding: 1em;
+  background: #FFF;
+  font-weight: 700;
+  font-size: 1.1em;
+  border-bottom: 1px solid @lightgrey;
+}
+
+/*********************************************************
+* Labels and inputs
+*/
+
+label {
+  display: block;
+  line-height: 1.8;
+  margin-top: 0.2em;
+}
+
+input,
+textarea,
+.select {
+  width: 100%;
+  .box-sizing( border-box );
+
+  border: 1px solid @lightgrey;
+  border-top-color: darken( @lightgrey, 10% );
+  border-radius: 2px;
+
+  color: #444;
+  font-size: 1em;
+
+  &:-moz-placeholder {
+    color: #AAA;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid @green;
+    .transition( border 0.25s ease );
+  }
+}
+
+input {
+  height: 2.4em;
+  margin: 0.2em 0;
+  padding: 0 0.5em;
+}
+
+textarea {
+  padding: 0.5em;
+  height: 3.8em;
+  resize: none;
+}
+
+// Small
+input.sixth {
+  padding: 0 0.2em;
+  text-align: center;
+}
+
+// Invalid
+input.invalid {
+  border-color: @red;
+  color: @red;
+}
+
+/*********************************************************
+* Input types
+*/
+
+.url-input {
+  // Meant to be resizable
+  height: 2.4em;
+  margin: 0.2em 0;
+  padding: 0.5em;
+  font-size: 0.9em;
+  font-family: menlo, monospace;
+  word-wrap: break-word;
+}
+
+.timecode-input {
+  font-family: menlo, monospace;
+}
+
+/*********************************************************
+* Select
+*/
+
+.select {
+  .selectable( none );
+  margin: 0.2em 0;
+  position: relative;
+  height: 2.4em;
+  background: white;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid @lightgrey;
+  box-shadow: 0 2px 5px -2px fade( black, 10% );
+  color: #777;
+  > li {
+    cursor: pointer;
+    list-style: none;
+    height: 100%;
+    line-height: 2.4em;
+    padding: 0 0.5em;
+    background: darken( #FFF, 2% );
+    border: 1px solid @lightgrey;
+    border-bottom: none;
+    &:first-of-type {
+      background: #FFF;
+      color: #333;
+      border-radius: 2px 2px 0 0;
+    }
+    &:last-of-type {
+      border-bottom: 1px solid @lightgrey;
+    }
+  }
+  > i {
+    color: #999;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    &.icon-sort-up {
+      top: 11px;
+    }
+    &:hover {
+      color: #444;
+    }
+  }
+}
+
+.select.expanded {
+  overflow: visible;
+  > li {
+    border-color: darken( @lightgrey, 10% );
+  }
+}
+
+/*********************************************************
+* Tabs
+*/
+
+.tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: @lightergrey;
+  border-top: 1px solid @lightgrey;
+  height: 2.4em;
+  .clearfix();
+  > li {
+    float: left;
+    height: 100%;
+    line-height: 2.4em;
+    border-right: 1px solid @lightgrey;
+    font-size: 0.9em;
+    color: #999;
+    padding: 0 1em;
+    cursor: pointer;
+    &.tab-on {
+      background: #FFF;
+      color: #555;
+      border-top: 1px solid #FFF;
+      z-index: 1;
+      margin-top: -1px;
+      box-shadow: 0 3px 8px -2px fade( black, 40% );
+    }
+  }
+}
+
+.tabs.top {
+  border-bottom: 1px solid @lightgrey;
+  border-top: none;
+  > li {
+    &.tab-on {
+      margin-top: 0;
+      border-bottom: 1px solid #FFF;
+      border-top: none;
+      box-shadow: none;
+    }
+  }
+}
+
+
+/*********************************************************
+* Grid
+*/
+.group {
+  margin-bottom: 0.5em;
+  .clearfix();
+  > :last-child {
+    margin-right: 0;
+  }
+  label:not(.full) {
+    height: 2.8em;
+    line-height: 2.8em;
+    margin-top: 0;
+  }
+}
+
+.quarter,
+.half,
+.third,
+.two-thirds,
+.five-sixths,
+.sixth {
+  float: left;
+  margin-right: 2%;
+}
+
+.quarter {  width: 23.5%; }
+.half {  width: 49%; }
+.third {  width: 32%; }
+.two-thirds { width: 66%; }
+.five-sixths { width: 83%; }
+.sixth { width: 15%; }
+
+
+/*********************************************************
+* Button
+*/
+.btn {
+  display: inline-block;
+  background: @green;
+  border: 1px solid darken( @green, 10% );
+  color: white;
+  height: 2.4em;
+  margin: 0.2em 0;
+  padding: 0 0.8em;
+  line-height: 2.4em;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover {
+    background: lighten( @green, 5% );
+  }
 }
 
 /*********************************************************
 * Accordion
 */
 
-.accordion-controls [data-tab-control] {
-  display: block;
-  padding: 10px 0;
+.left-panel {
+  [data-tab-control] {
+    display: block;
+    padding: 1em;
+    border-bottom: 1px solid @lightgrey;
+    color: #999;
+  }
+
+  [data-tab-control].tab-on {
+    background: #FFF;
+    color: #555;
+  }
+
+  [data-tab] {
+    display: none;
+  }
+
+  [data-tab].tab-on {
+    display: block;
+    border-bottom: 1px solid @lightgrey;
+  }
 }
 
-.accordion-controls [data-tab-control].tab-on {
-  background: yellow;
-}
-
-.accordion-panels [data-tab] {
+[data-tab] {
   display: none;
 }
 
-.accordion-panels [data-tab].tab-on {
+[data-tab].tab-on {
   display: block;
 }
-
 
 /*********************************************************
 * Tooltip
